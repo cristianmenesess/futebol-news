@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Futebol News | Newsletter diária de futebol</title>
+    <meta name="description" content="Receba toda manhã, por e-mail, as principais notícias de futebol do GE e do Lance resumidas por IA.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚽</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/app.js" defer></script>
+</head>
+<body>
+    <!-- Topo: logo, menu e botão de inscrição -->
+    <header class="topo">
+        <div class="topo__conteudo">
+            <a class="marca" href="#inicio"><span class="marca__bola" aria-hidden="true"></span>Futebol News</a>
+            <nav class="topo__menu" aria-label="Seções da página">
+                <a href="#como-funciona">Como funciona</a>
+                <a href="#duvidas">Dúvidas</a>
+            </nav>
+            <a class="botao botao--pequeno" href="#inicio">Inscreva-se</a>
+        </div>
+    </header>
+
+    <main id="inicio">
+        <!-- Conteúdo principal (some quando aparece o aviso do link do e-mail) -->
+        <div class="hero">
+            <!-- Apresentação e formulário de inscrição -->
+            <section class="abertura" aria-labelledby="tituloPagina">
+                <p class="selo">todo dia às 7h · grátis</p>
+                <h1 id="tituloPagina" class="abertura__titulo">O futebol do dia, <span class="destaque">direto no seu e-mail</span></h1>
+                <p class="abertura__texto">
+                    As principais notícias do GE e do Lance, resumidas por IA, para você ler
+                    em <strong>2 minutos</strong> antes de começar o dia.
+                </p>
+
+                <!-- Formulário de inscrição -->
+                <form id="formInscricao" class="formulario" novalidate>
+                    <div class="formulario__linha">
+                        <label class="campo">
+                            <span class="sr-only">Nome</span>
+                            <input type="text" id="inputNome" name="name" placeholder="seu nome" autocomplete="name" maxlength="100" required>
+                        </label>
+                        <label class="campo">
+                            <span class="sr-only">E-mail</span>
+                            <input type="email" id="inputEmail" name="email" placeholder="seu e-mail" autocomplete="email" maxlength="254" required>
+                        </label>
+                        <!-- Durante o envio, o botão fica bloqueado e mostra "Enviando..." -->
+                        <button type="submit" id="btnEnviar" class="botao">Quero receber</button>
+                    </div>
+
+                    <label for="inputConsentimento" class="consentimento">
+                        <input type="checkbox" id="inputConsentimento" name="consent" required>
+                        <span>Aceito receber a newsletter diária por e-mail e sei que posso me descadastrar a qualquer momento.</span>
+                    </label>
+
+                    <!-- Aqui aparecem as mensagens de sucesso ou erro -->
+                    <div id="mensagemRetorno" role="status" aria-live="polite"></div>
+                </form>
+
+                <a class="abertura__link" href="#como-funciona">veja como funciona ↓</a>
+            </section>
+
+            <!-- Como funciona -->
+            <section id="como-funciona" class="secao" aria-labelledby="tituloComoFunciona">
+                <h2 id="tituloComoFunciona" class="secao__titulo">fique mais informado <span class="destaque">em 2 minutos</span></h2>
+                <ol class="passos">
+                    <li class="passo">
+                        <span class="passo__numero">01</span>
+                        <h3 class="passo__titulo">Inscreva-se</h3>
+                        <p>Coloque seu nome e e-mail no formulário acima. É grátis.</p>
+                    </li>
+                    <li class="passo">
+                        <span class="passo__numero">02</span>
+                        <h3 class="passo__titulo">Confirme o e-mail</h3>
+                        <p>Você recebe um e-mail de confirmação. Um clique e pronto.</p>
+                    </li>
+                    <li class="passo">
+                        <span class="passo__numero">03</span>
+                        <h3 class="passo__titulo">Receba às 7h</h3>
+                        <p>Todo dia de manhã, o resumo do futebol chega na sua caixa de entrada.</p>
+                    </li>
+                </ol>
+            </section>
+
+            <!-- Exemplo de como a newsletter chega no e-mail -->
+            <section class="secao secao--cinza" aria-labelledby="tituloEdicao">
+                <div class="edicao">
+                    <div class="edicao__texto">
+                        <h2 id="tituloEdicao" class="secao__titulo secao__titulo--esquerda">O que vem <span class="destaque">em cada edição</span></h2>
+                        <ul class="lista-check">
+                            <li>As notícias mais importantes do dia, do GE e do Lance</li>
+                            <li>Um resumo curto de cada uma, escrito por IA</li>
+                            <li>O link da matéria original em cada notícia</li>
+                            <li>Sem notícia repetida de um dia para o outro</li>
+                        </ul>
+                        <a class="botao" href="#inicio">Quero receber</a>
+                    </div>
+
+                    <div class="email" aria-hidden="true">
+                        <div class="email__topo">
+                            <span class="marca"><span class="marca__bola"></span>Futebol News</span>
+                            <span class="email__hora">7:00</span>
+                        </div>
+                        <p class="email__saudacao">Bom dia! o futebol de hoje em 2 minutos:</p>
+                        <ul class="email__lista">
+                            <li><span class="fonte">GE</span>Clássico de domingo termina empatado nos acréscimos</li>
+                            <li><span class="fonte">Lance</span>Mercado da bola: as negociações da semana</li>
+                            <li><span class="fonte">GE</span>Seleção divulga a lista de convocados</li>
+                        </ul>
+                        <p class="email__rodape">Ler a matéria completa ↗</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Dúvidas frequentes -->
+            <section id="duvidas" class="secao" aria-labelledby="tituloDuvidas">
+                <h2 id="tituloDuvidas" class="secao__titulo secao__titulo--esquerda">Dúvidas</h2>
+                <div class="duvidas">
+                    <details>
+                        <summary>O que eu vou receber ao me inscrever?</summary>
+                        <p>Um e-mail por dia, às 7h, com as principais notícias de futebol do GE e do Lance, resumidas e com o link de cada matéria original.</p>
+                    </details>
+                    <details>
+                        <summary>A newsletter é gratuita?</summary>
+                        <p>Sim, é totalmente grátis.</p>
+                    </details>
+                    <details>
+                        <summary>De onde vêm as notícias?</summary>
+                        <p>Do GE e do Lance. A IA só resume o que essas fontes publicaram, e cada item leva o link da matéria para você ler na íntegra.</p>
+                    </details>
+                    <details>
+                        <summary>Vou receber spam?</summary>
+                        <p>Não. Você recebe só a edição diária, e todo e-mail tem um link para descadastrar com um clique.</p>
+                    </details>
+                    <details>
+                        <summary>Como faço para sair da lista?</summary>
+                        <p>Clique em "descadastrar" no fim de qualquer edição. Pronto, você não recebe mais nada.</p>
+                    </details>
+                </div>
+            </section>
+        </div>
+
+        <!-- Avisos de quem volta pelo link do e-mail: inscrição confirmada,
+             descadastro feito ou link inválido -->
+        <section id="painelRetorno" class="retorno" hidden>
+            <div id="retornoConfirmado" class="retorno__bloco retorno__bloco--sucesso" hidden>
+                <span class="retorno__icone" aria-hidden="true">✓</span>
+                <h2 class="retorno__titulo" tabindex="-1">Inscrição confirmada!</h2>
+                <p class="retorno__texto">A partir de amanhã você recebe a newsletter.</p>
+            </div>
+
+            <div id="retornoDescadastrado" class="retorno__bloco" hidden>
+                <span class="retorno__icone" aria-hidden="true">👋</span>
+                <h2 class="retorno__titulo" tabindex="-1">Você saiu da lista.</h2>
+                <p class="retorno__texto">Não enviaremos mais e-mails.</p>
+            </div>
+
+            <div id="retornoErro" class="retorno__bloco retorno__bloco--erro" hidden>
+                <span class="retorno__icone" aria-hidden="true">!</span>
+                <h2 class="retorno__titulo" tabindex="-1">Link inválido ou expirado.</h2>
+            </div>
+
+            <button type="button" id="btnVoltarInscricao" class="botao botao--contorno">Voltar para a inscrição</button>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="rodape">
+        <div class="rodape__conteudo">
+            <div>
+                <span class="marca marca--clara"><span class="marca__bola" aria-hidden="true"></span>Futebol News</span>
+                <p class="rodape__frase">o futebol do dia, direto no seu e-mail</p>
+            </div>
+            <nav class="rodape__links" aria-label="Links do rodapé">
+                <a href="#como-funciona">Como funciona</a>
+                <a href="#duvidas">Dúvidas</a>
+                <a href="#inicio">Inscreva-se</a>
+            </nav>
+        </div>
+        <p class="rodape__copy">© 2026 Futebol News · notícias do GE e do Lance, resumidas por IA</p>
+    </footer>
+</body>
+</html>
